@@ -44,14 +44,14 @@ As a result bundle produced with nuxt are really large (30-46 MB), way to close 
 
 To solve the problem this package extract just the nuxt renderer from your installed nuxt version and produce a drop-in place replacement package for nuxt.
 
-## Install :
+## Install
 
 ```shell
 npm i --save-dev nuxt@VERSION
 npm i --save-dev @ezy/nuxt-renderer-extractor
 ```
 
-## API :
+## API
 
 `@ezy/nuxt-renderer-extractor` aka `ezy-nre` have a small API with only 2 commands:
 
@@ -59,7 +59,7 @@ npm i --save-dev @ezy/nuxt-renderer-extractor
 
 - `npx ezy-nre generate` to generate a version of `@ezy/nuxt-renderer` matching your `nuxt` package
 
-## Usage :
+## Usage
 
 ```shell
 npx ezy-nre generate
