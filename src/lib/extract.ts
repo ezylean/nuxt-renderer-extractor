@@ -47,7 +47,7 @@ function defaultCreatePackageJSON(
  * @param deps.resolve                nodejs require.resolve function or alternative: [[https://nodejs.org/api/modules.html#modules_require_resolve_request_options]]
  * @param deps.readFileSync           fs readFileSync function or alternative: [[https://nodejs.org/api/fs.html#fs_fs_readfilesync_path_options]]
  * @param deps.transpile              transpile function or alternative: [[transpile]]
- * 
+ *
  * @returns extract function
  */
 export function create(deps: Dependencies) {
