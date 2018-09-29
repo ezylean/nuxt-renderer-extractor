@@ -1,11 +1,11 @@
 {
-  "name": "@ezy/nuxt-renderer",
+  "name": "@ezy/nuxt-renderer-extractor",
   "version": "1.0.0",
   "description": "extract rendering part of nuxt to produce lightweight bundle for cloud computing environment",
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
-  "repository": "https://github.com/didierdemoniere/@ezy/nuxt-renderer",
+  "repository": "https://github.com/didierdemoniere/@ezy/nuxt-renderer-extractor",
+  "bin": {
+    "ezy-nre": "./bin/ezy-nre"
+  },
   "license": "MIT",
   "keywords": [],
   "scripts": {
@@ -30,7 +30,7 @@
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
-    "clean": "trash build test",
+    "clean": "trash build test generated",
     "all": "run-s reset test cov:check doc:html",
     "prepare-release": "run-s all version doc:publish"
   },
@@ -50,9 +50,20 @@
   "engines": {
     "node": ">=8.9"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "builtin-modules": "^3.0.0",
+    "fs-extra": "^7.0.0",
+    "meow": "^5.0.0",
+    "node-source-walk": "^4.0.0",
+    "ramda": "^0.25.0",
+    "shelljs": "^0.8.2"
+  },
   "devDependencies": {
-    "ava": "1.0.0-beta.7",
+    "ava": "^1.0.0-beta.7",
     "codecov": "^3.1.0",
     "cz-conventional-changelog": "^2.1.0",
     "gh-pages": "^2.0.0",

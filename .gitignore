@@ -1,5 +1,6 @@
 node_modules
 build
+generated
 test
 src/**.js
 .idea/*

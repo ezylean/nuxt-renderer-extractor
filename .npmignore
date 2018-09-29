@@ -5,9 +5,11 @@ tsconfig.module.json
 tslint.json
 .travis.yml
 .github
+.circleci
 .prettierignore
 .vscode
 build/docs
+generated
 **/*.spec.*
 coverage
 .nyc_output

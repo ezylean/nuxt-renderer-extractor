@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "node": "8.9"
+        },
+        "useBuiltIns": true,
+        "debug": false
+      }
+    ]
+  ],
+  "plugins": [
+    ["transform-object-rest-spread", { "useBuiltIns": true, "debug": false }],
+    ["syntax-async-functions", { "useBuiltIns": true, "debug": false }]
+  ]
+}
