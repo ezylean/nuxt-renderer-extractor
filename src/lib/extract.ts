@@ -1,3 +1,4 @@
+// tslint:disable:interface-over-type-literal
 import builtinModules from 'builtin-modules';
 import * as fs from 'fs-extra';
 import { join, parse } from 'path';
@@ -6,14 +7,14 @@ import { create as createCopyAll } from './copyAll';
 import { create as createGetImportsDeep } from './getImportsDeep';
 import { transpile } from './transpile';
 
-export interface Dependencies {
+export type Dependencies = {
   copy: (from: string, to: string) => Promise<void>;
   resolve: (relativePath: string) => string;
   require: (relativePath: string) => any;
   readFileSync: (path: string, encoding: string) => any;
   writeFile: (path: string, content: string) => Promise<void>;
   transpile: (from: string, to: string) => Promise<void>;
-}
+};
 
 function defaultCreatePackageJSON(
   pkgName: string,

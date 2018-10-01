@@ -1,9 +1,9 @@
-// tslint:disable:no-console
+// tslint:disable:no-console interface-over-type-literal
 import { join } from 'path';
 import { extract } from '../lib/extract';
 import * as messages from './messages';
 
-export interface Dependencies {
+export type Dependencies = {
   extract: (
     moduleName: string,
     newModuleName: string,
@@ -13,7 +13,7 @@ export interface Dependencies {
   log: (text: string) => void;
   require: (relativePath: string) => any;
   resolve: (relativePath: string) => string;
-}
+};
 
 /**
  * generate function factory

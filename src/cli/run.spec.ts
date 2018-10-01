@@ -7,14 +7,14 @@ test('list command - not found', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.resolve(),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: ['list'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.resolve(),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().then(() => {
@@ -26,14 +26,14 @@ test('list command', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.resolve(),
+    log: (text: string) => logs.push(text),
+    ls: () => ['1.0.0', '2.0.0'],
+    parseCLArgs: () => ({
       flags: {},
       input: ['list'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.resolve(),
-    log: (text: string) => logs.push(text),
-    ls: () => ['1.0.0', '2.0.0']
+    })
   });
 
   return run().then(() => {
@@ -45,14 +45,14 @@ test('generate command - nuxt not found', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.reject(messages.nuxtNotFound),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: ['generate'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.reject(messages.nuxtNotFound),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().then(() => {
@@ -65,14 +65,14 @@ test('generate command - failed', t => {
   const err = new Error('something just break');
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.reject(err),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: ['generate'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.reject(err),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().catch(error => {
@@ -87,14 +87,14 @@ test('generate command', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.resolve(),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: ['generate'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.resolve(),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().then(() => {
@@ -106,14 +106,14 @@ test('command - not found', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.resolve(),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: [],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.resolve(),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().then(() => {
@@ -125,14 +125,14 @@ test('command - not recognized', t => {
   const logs = [];
 
   const run = createRun({
-    createCommandParser: () => ({
+    generate: () => Promise.resolve(),
+    log: (text: string) => logs.push(text),
+    ls: () => [],
+    parseCLArgs: () => ({
       flags: {},
       input: ['ghost'],
       showHelp: () => logs.push(messages.help)
-    }),
-    generate: () => Promise.resolve(),
-    log: (text: string) => logs.push(text),
-    ls: () => []
+    })
   });
 
   return run().then(() => {

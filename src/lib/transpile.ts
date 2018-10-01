@@ -1,5 +1,12 @@
+// tslint:disable:interface-over-type-literal
 import * as fs from 'fs-extra';
 import { exec, rm } from 'shelljs';
+
+export type Dependencies = {
+  exec: (command: string) => any;
+  ensureDir: (path: string) => Promise<void>;
+  rm: (option: string, ...files: string[]) => void;
+};
 
 /**
  * transpile function factory
@@ -10,11 +17,7 @@ import { exec, rm } from 'shelljs';
  * @param deps.exec           shellsjs exec function or alternative: [[https://github.com/shelljs/shelljs#execcommand--options--callback]]
  * @returns                   transpile function
  */
-export function create(deps: {
-  exec: (command: string) => any;
-  ensureDir: (path: string) => Promise<void>;
-  rm: (option: string, ...files: string[]) => void;
-}) {
+export function create(deps: Dependencies) {
   return (from: string, to: string) => {
     return deps
       .ensureDir(to)

@@ -1,4 +1,4 @@
-// tslint:disable:no-console
+// tslint:disable:no-console interface-over-type-literal
 import * as fs from 'fs-extra';
 import { join, parse } from 'path';
 import { partition, uniq } from 'ramda';
@@ -8,10 +8,10 @@ import { recLoop } from './recLoop';
 const isRelative = (mod: string) => mod.startsWith('.');
 const isJS = (mod: string) => mod.endsWith('.js');
 
-export interface Dependencies {
+export type Dependencies = {
   resolve: (relativePath: string) => string;
   getSource: (path: string, encoding: string) => string;
-}
+};
 
 /**
  * getImportsDeep function factory
