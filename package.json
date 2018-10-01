@@ -1,6 +1,6 @@
 {
   "name": "@ezy/nuxt-renderer-extractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "extract rendering part of nuxt to produce lightweight bundle for cloud computing environment",
   "repository": "https://github.com/ezylean/nuxt-renderer-extractor",
   "bin": {
